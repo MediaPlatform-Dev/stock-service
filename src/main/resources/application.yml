@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: "stock"
+  datasource:
+    url: ${DB_CONNECTION_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+          include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+  level:
+    com.k1m743hyun.stockservice: DEBUG
