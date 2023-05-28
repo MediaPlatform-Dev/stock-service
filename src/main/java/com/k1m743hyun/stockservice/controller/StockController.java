@@ -5,12 +5,7 @@ import com.k1m743hyun.stockservice.service.StockService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -21,8 +16,13 @@ public class StockController {
     private final StockService service;
 
     @PostMapping
-    public void create(@RequestBody StockDto requestDto) {
-        service.newItem(requestDto);
+    public void createItem(@RequestBody StockDto requestDto) {
+        service.createItem(requestDto);
+    }
+
+    @GetMapping("/{stockNum}")
+    public StockDto getItem(@PathVariable Long stockNum) {
+        return service.getItem(stockNum);
     }
 
     @GetMapping
@@ -31,7 +31,7 @@ public class StockController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody StockDto requestDto) {
+    public void deleteItem(@RequestBody StockDto requestDto) {
         service.deleteItem(requestDto);
     }
 }
