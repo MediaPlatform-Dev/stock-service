@@ -24,7 +24,7 @@ class StockServiceTest {
     StockMapper mapper;
 
     @Test
-    @DisplayName("")
+    @DisplayName("createItem 테스트")
     void createItem() {
 
         // given
@@ -35,7 +35,7 @@ class StockServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getItem 테스트")
     void getItem() {
 
         // given
@@ -46,7 +46,7 @@ class StockServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getItems 테스트")
     void getItems() {
 
         // given
@@ -57,7 +57,7 @@ class StockServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("deleteItem 테스트")
     void deleteItem() {
 
         // given
