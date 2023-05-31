@@ -1,17 +1,11 @@
 server:
   port: 8080
 
-spring:
-  application:
-    name: "stock"
-  datasource:
-    url: ENC(PqBmfh0el1tFGHRhbR/4SQX7QcwBQMMD0DI6n7nNbCcaxqsooIa5ql/dDcQzG23X8w7021xcNCv+vIym+ycN1w==)
-    username: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
-    password: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    encryptKey: k1m743hyun
+
 management:
   endpoints:
     web:
@@ -21,8 +15,21 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
 logging:
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
   level:
     com.k1m743hyun.stockservice: DEBUG
+
+spring:
+  application:
+    name: "stock"
+  datasource:
+    url: ENC(L1Ugrlg/I6PrnMZdXC2jwkAieMq1onbeSnebtwxxn81rvheqXvx1Qhg81YVqIpZY2Pv/nq5RTVy+dFIcpvqylg==)
+    username: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+    password: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
